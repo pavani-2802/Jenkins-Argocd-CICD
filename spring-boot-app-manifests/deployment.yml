@@ -2,10 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-boot-app-deployment
-  labels:
-    app: spring-boot-app
+  namespace: argocd-operators   
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: spring-boot-app
@@ -15,11 +14,7 @@ spec:
         app: spring-boot-app
     spec:
       containers:
-        - name: spring-boot-app
-          image: pavanif5/jenkins-argocd-cicd:24
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
+        - name: spring-boot-container
+          image: pavanif5/jenkins-argocd-cicd:24  
           ports:
-            - containerPort: 8888
+            - containerPort: 8080
