@@ -3,7 +3,7 @@ kind: Service
 metadata:
   # This name MUST match the one in your error message exactly
   name: spring-boot-app-service
-  namespace: default # Or the specific namespace you are using
+  namespace: argocd-operators # Or the specific namespace you are using
 spec:
   selector:
     app: spring-boot-app
@@ -12,3 +12,4 @@ spec:
       port: 80
       targetPort: 8080 # The port your Spring Boot app listens on internally
   type: ClusterIP # Or ClusterIP if you don't need external access
+
