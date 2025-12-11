@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-boot-app-deployment
-  namespace: argocd-operators # Must match the service namespace
+  namespace: argocd-operators 
 spec:
   replicas: 1
   selector:
@@ -11,11 +11,10 @@ spec:
   template:
     metadata:
       labels:
-        # This label MUST match the 'selector' in your Service YAML
         app: spring-boot-app
     spec:
       containers:
-      - name: spring-boot-container
-        image: pavanif5/jenkins-argocd-cicd:24 
+        name: spring-boot-container
+        image: pavanif5/jenkins-argocd-cicd:25 
         ports:
-        - containerPort: 8080 # Must match the 'targetPort' in your Service YAML
+        - containerPort: 8080 
