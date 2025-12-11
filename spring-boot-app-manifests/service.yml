@@ -4,15 +4,11 @@ metadata:
   name: spring-boot-app-external-service
   namespace: argocd-operators
 spec:
-  # Use LoadBalancer for external cloud-managed access
   type: ClusterIP
   ports:
-    - name: http
-      # The external Load Balancer listens on port 80
+      name: http
       port: 80 
       protocol: TCP
-      # Traffic is forwarded to the Pod's port 8080
       targetPort: 8080 
   selector:
     app: spring-boot-app
-
