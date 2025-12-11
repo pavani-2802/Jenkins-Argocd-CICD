@@ -14,7 +14,8 @@ spec:
         app: spring-boot-app
     spec:
       containers:
-        name: spring-boot-container
+        - name: spring-boot-container
         image: pavanif5/jenkins-argocd-cicd:25 
         ports:
         - containerPort: 8080 
+
